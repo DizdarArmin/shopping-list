@@ -20,9 +20,6 @@ function App() {
   const [byPrice, setByPrice] = useState(false);
   const [byName, setByName] = useState(false);
 
-<<<<<<< HEAD:src/App.js
-  const [completedList, setCompletedList] = useState([])
-=======
   // 1. Perfect, using dummy data is a nice way to kickstart the project.
   /**
    * 2. The key with the value Math.random() is not neccesary. 
@@ -30,7 +27,6 @@ function App() {
    * to sort the list.
   */
 
->>>>>>> c2e8a2619e63ff6c15b806fe2a7d8e7810af1309:src/App.jsx
   const [list, setList] = useState([
       {key:Math.random(), isFinished: true ,name: "C", price: 500},
       {key:Math.random(), isFinished: false, name: "A", price: 2500},
