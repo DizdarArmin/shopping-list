@@ -10,7 +10,7 @@ import Task from './components/Task';
 import Filters from './components/Filters';
 import {useState} from 'react';
 
-function App() {
+export default function App() {
   // To many booleans for a small project, take a step back and check how to simplify it.
   const [showCompleted, setShowCompleted] = useState(false);
   const [toggle, setToggle] = useState(true);
@@ -37,7 +37,8 @@ function App() {
     ]
   ) 
 
-
+// This function sorts created list by name. IF statement is used to sort from A-Z then Z-A
+// Same principle applies in next function used for sorting price from low to high and vice versa.
 const sortByName = (e) => {
   e.preventDefault();
   let sorted;
@@ -49,9 +50,8 @@ const sortByName = (e) => {
       });
   }
   else {
-      sorted = list.sort((a, b) => {
-      return b.name.localeCompare(a.name);
-      });
+      sorted = list.reverse();
+
   }
   setByName(!byName);
   setList(sorted);
@@ -68,12 +68,19 @@ const sortByPrice = (e) => {
     });  
   }
   else {
-    sorted = [... list].sort((a, b) => {
-      return b.price - a.price;
-    });
+    sorted = list.reverse();
   }
   setByPrice(!byPrice);
   setList(sorted);
+}
+ const setToCompleted = (item, e) => {
+  setList({
+    list:{
+      ...list,
+      
+      item: true
+    }
+  })
 }
 
 // Good!
@@ -81,6 +88,7 @@ const notCompleted = list.filter(item => item.isFinished === false).map((item) =
   <Task key={item.key} 
         state={item.isFinished} 
         name={item.name} 
+        
         price={item.price}></Task>
 ))
 
@@ -92,15 +100,7 @@ const completed = list.filter(item => item.isFinished === true).map((item) =>(
         price={item.price}></Task>
 ))
 
-function setToCompleted(item){
-  setList({
-    list:{
-      ...list,
-      
-      item: true
-    }
-  })
-}
+
 
 // I will explain latter how to clean this one up.
 function change(e){
@@ -133,5 +133,3 @@ function change(e){
     </div>
   );
 }
-
-export default App;
