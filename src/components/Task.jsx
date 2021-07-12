@@ -2,8 +2,11 @@ import '../css/task.css';
 
 // 1. Consistency. Here you use export default to make the export a single line, but on App.js you do the export at the end.
 // I do prefer this style as a single line, but do the same in App.js
-export default function Task({state, name, price, handler}){
-
+export default function Task({state, name, price, handler, key}){
+    const changeValue = (i)=>{
+        setList(...list, list[i].isFinished = !list[i].isFinished);
+        console.log(i)
+  }
     return(
         
         // always indent your tags

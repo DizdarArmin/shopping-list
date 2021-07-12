@@ -79,18 +79,14 @@ const sortByPrice = () => {
   setList(sorted);
 }
 const changeValue = (i)=>{
-
-      let currentValue = list[i].isFinished;
-          currentValue = !currentValue;
-      setList({[list[i].isFinished]: true})
-
+      setList(...list, list[i].isFinished = !list[i].isFinished);
       console.log(i)
-
 }
 
-
+const notCompletedFiltered = list.filter(item => item.isFinished === false);
+const completedFiltered = list.filter(item => item.isFinished === true);
 // Good!
-const notCompleted = list.filter(item => item.isFinished === false).map((item, i) =>(
+const notCompleted = notCompletedFiltered.map((item, i) =>(
   <Task key={i} 
         state={item.isFinished} 
         name={item.name} 
@@ -98,7 +94,7 @@ const notCompleted = list.filter(item => item.isFinished === false).map((item, i
         price={item.price}></Task>
 ))
 // Good as well
-const completed = list.filter(item => item.isFinished === true).map((item, i) =>(
+const completed = completedFiltered.map((item, i) =>(
   <Task key={i} 
         state={item.isFinished} 
         name={item.name} 
