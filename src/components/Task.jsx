@@ -10,8 +10,9 @@ export default function Task({state, name, price, handler}){
         <div className="task form-check d-inline-flex justify-content-between">
             <input  className="form-check-input" 
                     type="checkbox"
-
-                    checked={state}
+                    value = {state}
+                    onChange={handler}
+                    defaultChecked={state}
                     
                     ></input>
             <p className="form-check">{name}, {price}</p>

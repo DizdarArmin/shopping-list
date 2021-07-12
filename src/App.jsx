@@ -8,7 +8,7 @@ import logo from './logo.svg'; // always remove unused stuff
 import './App.css';
 import Task from './components/Task';
 import Filters from './components/Filters';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 export default function App() {
   // To many booleans for a small project, take a step back and check how to simplify it.
@@ -28,75 +28,81 @@ export default function App() {
   */
 
   const [list, setList] = useState([
-      {key:Math.random(), isFinished: true ,name: "C", price: 500},
-      {key:Math.random(), isFinished: false, name: "A", price: 2500},
-      {key:Math.random(), isFinished: false, name: "B", price: 22500},
-      {key:Math.random(), isFinished: false ,name: "G", price: 300},
-      {key:Math.random(), isFinished: false, name: "H", price: 12},
-      {key:Math.random(), isFinished: false, name: "L", price: 2},
+      {isFinished: true ,name: "C", price: 500},
+      {isFinished: false, name: "A", price: 2500},
+      {isFinished: false, name: "B", price: 22500},
+      {isFinished: false ,name: "G", price: 300},
+      {isFinished: false, name: "H", price: 12},
+      {isFinished: false, name: "L", price: 2},
     ]
   ) 
 
+ 
+
 // This function sorts created list by name. IF statement is used to sort from A-Z then Z-A
 // Same principle applies in next function used for sorting price from low to high and vice versa.
-const sortByName = (e) => {
-  e.preventDefault();
+const sortByName = () => {
+
   let sorted;
 
   // You dont need a if/else here. This function sorts by name, thus, you can create a new list based on this directly.
   if (byName){
-      sorted = list.sort((a, b) => {
+      sorted = list.sort(function (a, b){
       return a.name.localeCompare(b.name);
       });
   }
   else {
-      sorted = list.reverse();
-
+      sorted = list.sort((a, b) => {
+      return b.name.localeCompare(a.name);
+      });
   }
   setByName(!byName);
   setList(sorted);
 }
 
-const sortByPrice = (e) => {
-  e.preventDefault();
+const sortByPrice = () => {
+
   let sorted;
 
   // Same as the other function
   if (byPrice){
-    sorted = [... list].sort((a, b) => {
+    sorted = [... list].sort(function (a, b){
       return a.price - b.price;
     });  
   }
   else {
-    sorted = list.reverse();
+    sorted = [... list].sort(function (a, b){
+      return b.price - a.price;
+    });
   }
   setByPrice(!byPrice);
   setList(sorted);
 }
- const setToCompleted = (item, e) => {
-  setList({
-    list:{
-      ...list,
-      
-      item: true
-    }
-  })
+const changeValue = (i)=>{
+
+      let currentValue = list[i].isFinished;
+          currentValue = !currentValue;
+      setList({[list[i].isFinished]: true})
+
+      console.log(i)
+
 }
 
+
 // Good!
-const notCompleted = list.filter(item => item.isFinished === false).map((item) =>(
-  <Task key={item.key} 
+const notCompleted = list.filter(item => item.isFinished === false).map((item, i) =>(
+  <Task key={i} 
         state={item.isFinished} 
         name={item.name} 
-        
+        handler={() => changeValue(i)}
         price={item.price}></Task>
 ))
-
 // Good as well
-const completed = list.filter(item => item.isFinished === true).map((item) =>(
-  <Task key={item.key} 
+const completed = list.filter(item => item.isFinished === true).map((item, i) =>(
+  <Task key={i} 
         state={item.isFinished} 
         name={item.name} 
+        handler={() => changeValue(i)}
         price={item.price}></Task>
 ))
 
