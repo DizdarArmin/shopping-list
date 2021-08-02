@@ -1,5 +1,4 @@
 import '../css/filters.css';
-import { useState } from "react"
 
 export default function Filters({name, price}){
     /**
@@ -12,13 +11,12 @@ export default function Filters({name, price}){
     // Always indent your code
     return (
         <div>
-          <h3>Shopping list</h3>
-          <div className="d-inline-flex justify-content-center">
-            <p>Sort by:</p>
+          <div className="text-center justify-content-space-around d-flex align-items-center">
+            <label>Sort by:</label>
 
               {/* The correct tag is button. Links will introduce bugs as users can open a filter in a new browser tab! */}
-              <button onClick={name} href="/">Name</button>
-              <button onClick={price} href="/">Price</button> 
+              <button className="btn-link btn" onClick={name}>Name</button>
+              <button className="btn-link btn" onClick={price}>Price</button> 
           </div>
         </div>
     )

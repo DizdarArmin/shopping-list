@@ -1,20 +1,27 @@
-
+*{
+  padding:0;
+  margin:0;
+  font-family: 'Noto Sans', sans-serif;
+}
 .App {
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
+  
 }
-
-.add{
-  width: fit-content;
+.container{
+  max-width: 450px;
 }
 
 .App-header {
-margin-top: 200px;
-display: flex;
-flex-direction: column;
 align-items: center;
-justify-content: center;
+display: flex;
+margin-top: 20px;
+
+}
+.text-center{
+  height: 75px;
+  justify-content: center;
 }
 
+
+   
