@@ -1,8 +1,17 @@
-import TaskItem from '../components/Task';
+import Task from '../components/Task';
+import '../css/taskList.css';
+export default function TaskList({list, status, handler}){
+ 
+const filteredList = list.filter(item => item.isFinished === status);
 
-export default function TaskList({list,  taskIsCompleted}){
+const TaskItems = filteredList.map((item, i) => (
+    <Task index={i} key={item.id} item={item} handler={handler} />
+  ));
 
     return (
-    <TaskItem></TaskItem>
+        <div className="container-fluid taskList">
+            {TaskItems}
+        </div>
+           
     )
-}
+}  

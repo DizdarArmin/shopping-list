@@ -1,0 +1,44 @@
+.parent{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.addButton{
+    box-shadow:none !important;
+    background-color: #1f56aa !important;
+    flex:1;
+    border-radius:25px;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+.name{
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+.price{
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+.text-input{
+    background-color: #e2e2e2 !important;
+    border-radius: 50px;
+    border: 1px solid transparent !important;
+    background-color: inherit;
+    padding-left: 20px;
+}
+.text-input:hover{
+    background-color: #f5f5f5 !important;
+}
+.text-input:active, .text-input:focus{
+    background-color: #fff !important;
+    outline: none;
+    border: 1px solid #1f56aa !important;
+   
+}
+.text-input::placeholder{
+    color: gray
+}
+
+
