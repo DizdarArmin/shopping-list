@@ -69,7 +69,7 @@ const sortByPrice = () => {
 const changeValue = (i, id) => {
     console.log("index: " + i)
     console.log("key: " + id);
-
+    //
 }
 
 const hideShowCompleted = () => {
