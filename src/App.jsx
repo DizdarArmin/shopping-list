@@ -28,7 +28,7 @@ export default function App() {
    * If we use functional programming, we can use the index of the array as a key
    * to sort the list.
   */
-  const [list,setList]= useState(JSON.parse(localStorage.getItem("list")));
+  const [list,setList]= useState(JSON.parse(sessionStorage.getItem("list")));
 
 // This function sorts created list by name. IF statement is used to sort from A-Z then Z-A
 // Same principle applies in next function used for sorting price from low to high and vice versa.
@@ -83,7 +83,7 @@ const hideShowCompleted = () => {
 }
 
 useEffect(()=> {
-  localStorage.setItem("list", JSON.stringify(list));
+  sessionStorage.setItem("list", JSON.stringify(list));
 }, [list])
 
 const addHandler = (name, price) => {
