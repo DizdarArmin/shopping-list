@@ -20,13 +20,13 @@ export default function AddSection({addHandler}){
 
     return(
         <form onSubmit={handleSubmit} className="container d-flex justify-content-center">
-                <input  className="name text-input col-5"
+                <input  className="name text-input col-6"
                         value={name}
                         onChange={(event) => setName(event.target.value)}
                         type="text"
                         placeholder="Forks and knives"
                 />
-                <input className="price text-input col-5"
+                <input className="price text-input col-4"
                         value={price}
                         onChange={(event) => setPrice(event.target.value)}
                         type="number"
@@ -35,7 +35,7 @@ export default function AddSection({addHandler}){
                 <button className="addButton btn btn-primary col-2"
                         type="submit"
                         
-                        >ADD</button>
+                        >+</button>
                
         </form>
     ) 

@@ -66,9 +66,12 @@ const sortByPrice = () => {
     setByPrice(!byPrice);
     setList(sorted);
 }
+
+
 const changeValue = (i, id) => {
     console.log("index: " + i)
     console.log("key: " + id);
+    
     //
 }
 

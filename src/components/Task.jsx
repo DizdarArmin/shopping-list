@@ -12,6 +12,7 @@ export default function Task({item, handler,index}){
                     type="checkbox"
                     onChange={() => handler(index, id)} 
                     defaultChecked={isFinished}></input>
+                    <span>#{id}</span>
                 <label className="col text-left label form-check-label">{name}</label>
                 <label className="col text-right font-weight-bold label form-check-label">{price} SEK</label>
         </div>
