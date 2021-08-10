@@ -7,11 +7,9 @@ export default function AddSection({addHandler}){
         const handleSubmit = (e) => {
                 e.preventDefault();
                 if (name === "" || price === ""){
-                        console.log("Name or price empty")
-                       
+                        alert("Name or price empty");     
                 }
-                else {
-                        
+                else {  
                         addHandler(name, price);
                 }
 
@@ -36,6 +34,7 @@ export default function AddSection({addHandler}){
                         type="submit"
                         
                         >+</button>
+                
                
         </form>
     ) 

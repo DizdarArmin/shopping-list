@@ -10,6 +10,7 @@ import AddSection from './components/AddSection';
 import Filters from './components/Filters';
 import {useState, useEffect} from 'react';
 import logo from './assets/logo.png';
+import hero from './assets/velvet-hero.jpg';
 
 
 export default function App() {
@@ -20,22 +21,22 @@ export default function App() {
   // because we only have 2 criteria, we dont need 2 booleans to keep track of stuff. 
   const [byPrice, setByPrice] = useState(false);
   const [byName, setByName] = useState(false);
+  const [list,setList]= useState([]);
 
+  useEffect(()=> {
+    const data = localStorage.getItem("list");
+    const parsedData = JSON.parse(data) ?? [];
+    setList(parsedData);
+  },[]);
 
-  // 1. Perfect, using dummy data is a nice way to kickstart the project.
-  /**
-   * 2. The key with the value Math.random() is not neccesary. 
-   * If we use functional programming, we can use the index of the array as a key
-   * to sort the list.
-  */
-  const [list,setList]= useState(JSON.parse(localStorage.getItem("list")));
+  useEffect(()=> {
+    localStorage.setItem("list", JSON.stringify(list));
+  }, [list]);
 
 // This function sorts created list by name. IF statement is used to sort from A-Z then Z-A
 // Same principle applies in next function used for sorting price from low to high and vice versa.
 const sortByName = () => {
       let sorted;
-
-      // You dont need a if/else here. This function sorts by name, thus, you can create a new list based on this directly.
       if (byName){
           sorted = list.sort(function (a, b){
           return a.name.localeCompare(b.name);
@@ -52,9 +53,8 @@ const sortByName = () => {
 
 const sortByPrice = () => {
     let sorted;
-    // Same as the other function
     if (byPrice){
-      sorted = [...list].sort(function (a, b){
+      sorted = list.sort(function (a, b){
         return a.price - b.price;
       });  
     }
@@ -68,11 +68,12 @@ const sortByPrice = () => {
 }
 
 
-const changeValue = (i, id) => {
-    console.log("index: " + i)
-    console.log("key: " + id);
-    
-    //
+const changeValue = (id) => {
+    console.log(JSON.stringify(list));
+    const index = list.findIndex((item) => item.id === id)
+    const cloneList = [...list];
+    cloneList[index].isFinished = !cloneList[index].isFinished;
+    setList(cloneList);
 }
 
 const hideShowCompleted = () => {
@@ -85,10 +86,6 @@ const hideShowCompleted = () => {
       }
 }
 
-useEffect(()=> {
-  localStorage.setItem("list", JSON.stringify(list));
-}, [list])
-
 const addHandler = (name, price) => {
   setList((prev) => {
     let temp = [{id: Math.random(), name:name, price: price, isFinished: false}, ...prev];
@@ -99,11 +96,10 @@ const addHandler = (name, price) => {
 
 
   return (
-
     <div className="App-header">
 
       <header className="container">
-        <img className="img img-fluid col" src={logo} alt="logo"></img>
+        <img className="img img-fluid col-12" src={hero} alt="logo"></img>
         <h1 className="text-center d-flex align-items-center">Shopping list</h1>
         <AddSection  addHandler ={addHandler}/>
 

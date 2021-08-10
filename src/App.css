@@ -9,13 +9,12 @@
   
 }
 .container{
-  max-width: 450px;
+  max-width: 550px;
 }
 
 .App-header {
 align-items: center;
 display: flex;
-margin-top: 20px;
 
 }
 .text-center{
