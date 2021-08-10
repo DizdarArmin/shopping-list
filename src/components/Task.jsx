@@ -6,9 +6,9 @@ export default function Task({item, handler}){
     const {id, name, price, isFinished } = item;
 
     return(
-        <div className="form-check d-flex justify-content-between row ">
+        <div className="card form-check d-flex justify-content-between row ">
                
-            <input  className="col form-check-input" 
+            <input  className="col-12 form-check-input" 
                     type="checkbox"
                     onChange={() => handler(id)} 
                     defaultChecked={isFinished}></input>

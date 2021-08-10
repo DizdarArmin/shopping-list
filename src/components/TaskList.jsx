@@ -1,5 +1,4 @@
 import Task from '../components/Task';
-import '../css/taskList.css';
 export default function TaskList({list, status, handler}){
  
 const filteredList = list.filter(item => item.isFinished === status);
@@ -9,7 +8,7 @@ const TaskItems = filteredList.map((item) => (
   ));
 
     return (
-        <div className="container-fluid taskList">
+        <div>
             {TaskItems}
         </div>
            
