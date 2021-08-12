@@ -1,33 +1,35 @@
-.form-check-input{
-    height: 25px;
-    width: 25px;
-    background-color: #e2e2e2;
-    left: 0;
-    margin-left: 10px !important;
-    cursor: pointer;
+.form-check-input {
+  height: 25px;
+  width: 25px;
+  background-color: #e2e2e2;
+  left: 0;
+  margin-left: 10px !important;
+  cursor: pointer;
 }
-.card{
-    margin-bottom: 10px !important;
+.card {
+  margin-bottom: 10px !important;
 }
-.text-left{
-    margin-left: 10px;
+.text-left {
+  margin-left: 1.5rem;
 }
-label{
-    margin: 0;
+.text-right {
+  margin-right: 1.5rem;
 }
-.label{    
-    display: block;
-    position: relative;
+label {
+  margin: 0;
+}
+.label {
+  display: block;
+  position: relative;
 
-    font-size: 1rem;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-.form-check{
-    flex-direction: row;
-    height: 80px;
-    align-items: center;
+.form-check {
+  flex-direction: row;
+  height: 80px;
+  align-items: center;
 }
