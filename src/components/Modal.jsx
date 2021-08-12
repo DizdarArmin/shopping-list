@@ -26,6 +26,7 @@ export default function Modal({ closeModal }) {
     addHandler(name, price);
     setName("");
     setPrice("");
+    closeModal();
   };
 
   useEffect(() => {
@@ -39,7 +40,10 @@ export default function Modal({ closeModal }) {
   return (
     <div className="custom-modal">
       <div className="modal-content container-fluid">
-        <form onSubmit={handleSubmit}>
+        <div onClick={closeModal}>
+          <i className="closeButton text-danger text-right fas fa-times fa-2x"></i>
+        </div>
+        <form onSubmit={handleSubmit} onReset={closeModal}>
           <div className="container-fluid">
             <div className="row">
               <label className="label text-secondary">Name</label>
@@ -59,18 +63,15 @@ export default function Modal({ closeModal }) {
                 className="form-control"
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
-                type="text"
+                type="number"
                 placeholder="750 SEK"
               />
             </div>
           </div>
           <br />
           <div className="row">
-            <div className="col-4">
-              <button
-                className="form-control btn btn-primary "
-                onClick={closeModal}
-              >
+            <div className="col">
+              <button className="form-control btn btn-danger " type="reset">
                 Close
               </button>
             </div>

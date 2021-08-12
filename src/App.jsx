@@ -28,18 +28,15 @@ export default function App() {
 
   const FormModal = () => modal && <Modal closeModal={toggleModal} />;
 
-  const ComponentToggler = () =>
-    list.length > 0 ? (
-      <ShoppingList toggleModal={toggleModal} />
-    ) : (
-      <WelcomeScreen toggleModal={toggleModal} />
-    );
-
   return (
     <div className="container">
       <FormModal />
       <Header />
-      <ComponentToggler />
+      {list.length > 0 ? (
+        <ShoppingList toggleModal={toggleModal} />
+      ) : (
+        <WelcomeScreen toggleModal={toggleModal} />
+      )}
       <Footer />
     </div>
   );

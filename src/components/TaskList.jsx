@@ -13,9 +13,7 @@ export default function TaskList({ list, status, handler }) {
           You acquired all items...
         </p>
       );
-    } else {
-      return <div>{TaskItems}</div>;
-    }
+    } else return <div>{TaskItems}</div>;
   };
 
   return <List />;
