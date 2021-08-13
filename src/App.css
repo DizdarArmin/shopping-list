@@ -25,6 +25,15 @@
 .currency-select:focus {
   outline: none;
 }
+.qr-button:active,
+.qr-button:focus {
+  outline: none;
+}
+.qr-button {
+  background: none !important;
+  outline: none;
+  border: none;
+}
 .currency-select {
   position: absolute;
   top: 0;
@@ -74,6 +83,9 @@ p {
   max-width: 450px;
   top: 200px;
   width: 80%;
+}
+.modal-qr {
+  margin-top: 150px;
 }
 .closeButton {
   outline: none;
