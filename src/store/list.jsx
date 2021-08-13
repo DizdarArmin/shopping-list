@@ -1,7 +1,7 @@
-import {atom} from 'recoil';
+import { atom } from "recoil";
 
 export const listState = atom({
-    key: "key",
-    default: [],
-    dangerouslyAllowMutability: true
+  key: "key",
+  default: [],
+  dangerouslyAllowMutability: true,
 });

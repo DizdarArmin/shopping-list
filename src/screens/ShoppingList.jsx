@@ -1,6 +1,6 @@
 import TaskList from "../components/TaskList";
 import Filters from "../components/Filters";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { listState } from "../store/list";
 import { useRecoilState } from "recoil";
 

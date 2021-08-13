@@ -21,6 +21,15 @@
 .container-fluid {
   max-width: 600px !important;
 }
+.currency-select:active,
+.currency-select:focus {
+  outline: none;
+}
+.currency-select {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 .text-center {
   justify-content: center;

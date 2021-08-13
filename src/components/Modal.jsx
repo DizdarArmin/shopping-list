@@ -1,6 +1,7 @@
 import "../App.css";
 import { useRecoilState } from "recoil";
 import { listState } from "../store/list";
+import { loadCurrency, saveCurrency } from "../services/currency";
 
 import React, { useState, useEffect } from "react";
 
@@ -9,6 +10,7 @@ export default function Modal({ closeModal }) {
   const [price, setPrice] = useState("");
   const [isButtonDisabled, setButton] = useState(true);
   const [list, setList] = useRecoilState(listState);
+  const [placeholder, setPlaceholder] = useState(loadCurrency().toString());
 
   const addHandler = () => {
     setList((prev) => {
@@ -30,10 +32,13 @@ export default function Modal({ closeModal }) {
   };
 
   useEffect(() => {
-    if (name !== "" && price !== "") {
-      setButton(false);
-    } else {
+    let priceToInt = parseInt(price);
+    if ((name === "") | (price === "")) {
       setButton(true);
+    } else if (priceToInt <= 0) {
+      setButton(true);
+    } else {
+      setButton(false);
     }
   }, [name, price]);
 
@@ -64,7 +69,7 @@ export default function Modal({ closeModal }) {
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
                 type="number"
-                placeholder="750 SEK"
+                placeholder={"79.99 " + placeholder}
               />
             </div>
           </div>
