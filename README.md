@@ -11,7 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [ ] Allow to drag a picture to each shopping list item. And store it on a cloud platform.
 
 ### Hosting on Firebase
-    [Shopping List] (https://shopping-list-75a59.firebaseapp.com/).
+
+[Shopping List](https://shopping-list-75a59.firebaseapp.com/)
     
     
  ### Screenshots   
