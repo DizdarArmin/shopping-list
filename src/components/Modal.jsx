@@ -24,7 +24,7 @@ export default function Modal({ closeModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, price);
+    console.log(name, price); // console logs should not be present on final code -1
     addHandler(name, price);
     setName("");
     setPrice("");
@@ -45,9 +45,11 @@ export default function Modal({ closeModal }) {
   return (
     <div className="custom-modal">
       <div className="modal-content container-fluid">
+        {/* This should be a button not a div -1 */}
         <div onClick={closeModal}>
           <i className="closeButton text-danger text-right fas fa-times fa-2x"></i>
         </div>
+
         <form onSubmit={handleSubmit} onReset={closeModal}>
           <div className="container-fluid">
             <div className="row">

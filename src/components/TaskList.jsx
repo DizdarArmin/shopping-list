@@ -1,4 +1,5 @@
 import Task from "../components/Task";
+
 export default function TaskList({ list, status, handler }) {
   const filteredList = list.filter((item) => item.isFinished === status);
 
@@ -6,6 +7,7 @@ export default function TaskList({ list, status, handler }) {
     <Task key={item.id} item={item} handler={handler} />
   ));
 
+  // Use a short circuit to better render
   const List = () => {
     if (filteredList.length === 0 && !status) {
       return (
@@ -15,6 +17,16 @@ export default function TaskList({ list, status, handler }) {
       );
     } else return <div>{TaskItems}</div>;
   };
+
+  // Recomendation (untesrted)
+  // const List =
+  //   filteredList.length === 0 && !status ? (
+  //     <p className="text-secondary text-center d-flex align-items-center ">
+  //       You acquired all items...
+  //     </p>
+  //   ) : (
+  //     <div>{TaskItems}</div>
+  //   );
 
   return <List />;
 }

@@ -1,3 +1,4 @@
+// No extra points give, but no extra points taken. Thats good!
 import "../App.css";
 import qrImage from "../assets/frame.png";
 

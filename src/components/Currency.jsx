@@ -1,3 +1,6 @@
+// This is not reaxctive with the rest of the application.
+// If you are already using Recoil, this is easily solvable. -1
+
 import { useState, useEffect } from "react";
 import { loadCurrency, saveCurrency } from "../services/currency";
 
@@ -15,6 +18,7 @@ export default function Currency() {
     saveCurrency(currency);
   };
 
+  // only App.jsx or major page navigation when using router should be loading and setting state
   useEffect(() => {
     setCurrency(loadCurrency());
   }, []);
