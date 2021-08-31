@@ -8,6 +8,7 @@ import { loadCurrency } from "../services/currency";
 export default function Task({ item, handler }) {
   const { id, name, price, isFinished } = item;
 
+
   return (
     <div className="card form-check d-flex justify-content-between row ">
       <input

@@ -14,7 +14,7 @@ import Header from "./components/Header";
 
 export default function App() {
   const [list, setList] = useRecoilState(listState);
-  // modal sounds like an object, renema to showModal or isModalActice, use a verb for booleans not nouns. -1
+  // modal sounds like an object, renema to showModal or isModalActice, use a verb for booleans not nouns. -1 toggleModal and setToggleModal
   const [modal, setModal] = useState(false);
 
   // avoid 1 line functions. if they are related to user events, they can be done directly on the event.

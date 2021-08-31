@@ -20,7 +20,6 @@ export default function ShoppingList({ toggleModal }) {
   const [byPrice, setByPrice] = useState(false);
   const [byName, setByName] = useState(false);
 
-  // same here, but this is global thus needs to be keep in this component.
   const [list, setList] = useRecoilState(listState);
 
   // This function sorts created list by name. IF statement is used to sort from A-Z then Z-A

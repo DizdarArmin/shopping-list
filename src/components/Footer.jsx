@@ -2,9 +2,9 @@ import "../App.css";
 import { useState } from "react";
 import QR from "./QR";
 
-// add space between imports
 export default function Footer() {
   const [qr, setQr] = useState(false);
+
   return (
     <footer className="d-flex footer text-center justify-content-around">
       {qr && <QR toggler={() => setQr(!qr)} />}

@@ -1,7 +1,7 @@
 import "../App.css";
 import { useRecoilState } from "recoil";
 import { listState } from "../store/list";
-import { loadCurrency, saveCurrency } from "../services/currency";
+import { loadCurrency } from "../services/currency";
 
 import React, { useState, useEffect } from "react";
 
@@ -10,7 +10,7 @@ export default function Modal({ closeModal }) {
   const [price, setPrice] = useState("");
   const [isButtonDisabled, setButton] = useState(true);
   const [list, setList] = useRecoilState(listState);
-  const [placeholder, setPlaceholder] = useState(loadCurrency().toString());
+  const [placeholder] = useState(loadCurrency().toString());
 
   const addHandler = () => {
     setList((prev) => {
@@ -42,30 +42,37 @@ export default function Modal({ closeModal }) {
     }
   }, [name, price]);
 
+  
+
   return (
     <div className="custom-modal">
       <div className="modal-content container-fluid">
-        {/* This should be a button not a div -1 */}
-        <div onClick={closeModal}>
-          <i className="closeButton text-danger text-right fas fa-times fa-2x"></i>
-        </div>
-
         <form onSubmit={handleSubmit} onReset={closeModal}>
           <div className="container-fluid">
             <div className="row">
-              <label className="label text-secondary">Name</label>
+              <label className="label text-secondary">Name:</label>
               <input
                 autoFocus={true}
-                className="form-control"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 type="text"
                 placeholder="Forks and knives"
               />
             </div>
+        {/* This should be a button not a div -1 */}
+        <div onClick={closeModal}>
+          <i className="closeButton text-danger text-right fas fa-times fa-2x"></i>
+        </div>
+
+
+        <FieldInput
+          htmlProperties={name.htmlProperties}
+        
+        />
+
 
             <div className="row">
-              <label className="label text-secondary">Price</label>
+              <label className="label text-secondary">{children}:</label>
               <input
                 className="form-control"
                 value={price}
